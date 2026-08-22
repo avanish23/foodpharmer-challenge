@@ -1,142 +1,93 @@
-# FoodPharmer Challenge — Agent Instructions
+## Product Direction — Evidence-Driven Claim Analysis
 
-## Project
+The core product question is:
 
-This repository contains the FoodPharmer Challenge MVP.
+> Can a marketing claim made on food packaging be substantiated using available evidence?
 
-The application analyzes marketing claims made on packaged food products and compares those claims against supplied FSSAI regulations.
+FSSAI regulations are one evidence source, not the complete source of truth.
 
-The application is NOT intended to determine whether a food is healthy or unhealthy.
+The system must distinguish between:
+- regulatory compliance
+- factual substantiation
+- comparative claims
+- non-falsifiable marketing language
 
-## Core principle
+The system must NOT equate FSSAI compliance with overall claim truthfulness.
 
-The product evaluates:
+### Claim verdicts
 
-> "Is this marketing claim supported by the applicable FSSAI criteria?"
+Use these conceptual verdicts:
 
-It does NOT evaluate:
+- SUBSTANTIATED
+  Evidence supports the claim.
 
-> "Is this food healthy?"
+- CONTRADICTED
+  Available evidence directly conflicts with the claim.
 
-Do not introduce subjective health scores or nutritional-quality judgments.
+- UNSUBSTANTIATED
+  The claim may be true, but available evidence is insufficient to verify it.
 
-## Current MVP
+- NON_FALSIFIABLE
+  The statement is subjective or too vague to establish objectively.
 
-V1 pipeline:
+Do not label a claim FALSE merely because it cannot be substantiated.
 
-Package image
-→ extract marketing claims and relevant nutrition information
-→ compare claims against supplied FSSAI rules
-→ produce structured claim-level verdicts
-→ calculate deterministic Marketing Gap Score
+### Claim categories
 
-## Claim verdicts
+Claims should be classified before evaluation.
 
-Every claim must receive exactly one of:
+Examples include:
 
-- SUPPORTED
-- NOT_SUPPORTED
-- INSUFFICIENT_INFORMATION
+- NUTRIENT_CONTENT
+- COMPARATIVE
+- COMPOSITION
+- ABSENCE
+- QUANTITATIVE
+- SUPERLATIVE
+- SCIENTIFIC
+- SUBJECTIVE_MARKETING
 
-Never guess when the supplied image does not contain enough information.
+The ontology may evolve as more real-world claims are analyzed.
 
-## Regulatory source
+### Evidence-driven architecture
 
-FSSAI regulations supplied by the application are the source of truth for claim evaluation.
+The system should determine what evidence is required to evaluate each claim.
 
-Do not rely on the model's general knowledge of FSSAI regulations when evaluating a claim.
+Examples:
 
-Do not invent regulatory thresholds.
+"High fibre"
+→ product fibre content + applicable FSSAI criterion
 
-If the supplied regulations do not contain enough information to evaluate a claim, return INSUFFICIENT_INFORMATION.
+"50% less oil"
+→ claimed comparison baseline + comparable measurement + product measurement
 
-## Scoring
+"2x more protein"
+→ reference product + comparable protein measurements
 
-The Marketing Gap Score is calculated by application code, NOT by the LLM.
+"100% whole wheat"
+→ ingredient/composition evidence
 
-Current V1 scoring:
+"India's #1"
+→ authoritative market/ranking evidence and methodology
 
-- SUPPORTED = 0 penalty
-- INSUFFICIENT_INFORMATION = 0 penalty
-- NOT_SUPPORTED = 1 penalty
+### Core principle
 
-Marketing Gap Score =
-percentage of assessable claims that are NOT_SUPPORTED.
+The LLM should not be the final authority.
 
-If there are no assessable claims, the score is null.
+Use deterministic application logic wherever the problem can be expressed deterministically, especially:
+- arithmetic
+- percentage comparisons
+- threshold comparisons
+- unit normalization
+- evidence matching
 
-Keep scoring logic isolated and unit tested.
+The LLM should primarily be used for:
+- extracting claims
+- normalizing claims
+- identifying evidence requirements
+- interpreting retrieved evidence
+- explaining conclusions
 
-## Architecture
+Never invent missing evidence.
 
-Keep V1 intentionally simple.
-
-Do NOT introduce unless explicitly requested:
-
-- RAG
-- vector databases
-- embeddings
-- LangChain
-- LlamaIndex
-- MCP
-- agents
-- authentication
-- databases
-- unnecessary infrastructure
-
-We will introduce these incrementally when they solve an actual problem.
-
-## AI behavior
-
-The model should:
-
-- extract what is actually visible
-- distinguish claims from factual nutrition information
-- use only supplied regulatory information for compliance evaluation
-- avoid unsupported assumptions
-- explicitly report insufficient information
-- avoid medical or health recommendations
-
-The model must not:
-
-- declare a food healthy/unhealthy
-- invent nutrition values
-- invent FSSAI requirements
-- infer missing label information
-- make regulatory/legal determinations beyond the supplied criteria
-
-## Code quality
-
-Prefer simple, readable Python.
-
-Keep model interaction, prompts, and deterministic business logic separated.
-
-Use structured outputs rather than parsing free-form model responses.
-
-All deterministic business logic must be unit testable without making API calls.
-
-## Git workflow
-
-Never make changes directly on `main`.
-
-All work must happen on a feature branch.
-
-Current feature branch:
-
-feature/v1-claim-analyzer
-
-Do not merge or push unless explicitly instructed.
-
-Before making changes:
-
-1. Inspect the current repository state.
-2. Check the current branch.
-3. Preserve existing work.
-
-## Development philosophy
-
-Build the smallest working version first.
-
-Do not add abstractions, frameworks, infrastructure, or dependencies without a concrete requirement.
-
-When uncertain, prefer asking or documenting the assumption rather than silently inventing behavior.
+If evidence is unavailable, explicitly report that it is unavailable.
