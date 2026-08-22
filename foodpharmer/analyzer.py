@@ -19,13 +19,28 @@ not offer medical, dietary, or legal advice.
 Extract only text and nutrition facts actually visible in the image. Marketing
 claims include promotional statements such as nutrient-content or comparative
 claims; do not treat ordinary ingredient lists or raw nutrition-table entries as
-claims. Preserve claim wording exactly where legible.
+claims. Preserve claim wording exactly where legible. Split combined marketing
+statements into atomic claims whenever each part can be independently assessed.
+For example, a label that separately claims no cholesterol, no white sugar, and
+no trans fat must produce three claim records, not one combined record. Include
+the exact visible evidence used for each claim.
 
 Use the supplied rules as the exclusive regulatory source. Never use outside
 knowledge, invent a rule, threshold, label value, serving size, or inference.
 For every extracted claim, return exactly one allowed verdict. If the supplied
 rules do not cover the claim, or the image/rules lack information needed to
 apply a rule, use INSUFFICIENT_INFORMATION. Return no claims if none are visible.
+Only return NOT_SUPPORTED when a supplied criterion explicitly fails. The absence
+of an ingredient in a visible list is evidence, but is not regulatory proof
+unless a supplied rule says it is sufficient.
+
+Separately evaluate regulatory classifications only when the supplied rules
+explicitly define the classification and the visible package facts are sufficient
+to apply it. For example, report a supplied-rule "high in sugar" classification
+only if its stated threshold is met by visible nutrition facts. Do not report
+classifications based on general knowledge, do not describe them as health
+judgments, and return an empty classification list when none meet their supplied
+criteria. Regulatory classifications do not evaluate or alter marketing claims.
 """
 
 

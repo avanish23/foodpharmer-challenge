@@ -30,6 +30,9 @@ class ClaimAssessment(StrictModel):
     """One visible marketing claim and its evaluation against supplied rules."""
 
     claim: str = Field(description="The exact visible marketing claim, without paraphrasing.")
+    visible_evidence: list[str] = Field(
+        description="Exact visible label text or nutrition facts relevant to this claim."
+    )
     verdict: Verdict
     rationale: str = Field(
         description=(
@@ -42,11 +45,29 @@ class ClaimAssessment(StrictModel):
     )
 
 
+class RegulatoryClassification(StrictModel):
+    """A supplied-rule classification evaluated from visible package facts."""
+
+    classification: str = Field(
+        description="The exact classification name defined in the supplied FSSAI rules."
+    )
+    visible_evidence: list[str] = Field(
+        description="Exact visible nutrition facts or label text used for this classification."
+    )
+    rationale: str = Field(
+        description="Brief explanation using only the visible evidence and supplied rule."
+    )
+    applicable_rule: str = Field(
+        description="The exact supplied rule that defines this classification."
+    )
+
+
 class ModelAnalysis(StrictModel):
     """Structured output the model returns; deliberately excludes the score."""
 
     nutrition_facts: list[NutritionFact]
     claims: list[ClaimAssessment]
+    regulatory_classifications: list[RegulatoryClassification]
 
 
 class AnalysisResult(ModelAnalysis):

@@ -27,7 +27,7 @@ V1 pipeline:
 Package image
 → extract marketing claims and relevant nutrition information
 → compare claims against supplied FSSAI rules
-→ produce structured claim-level verdicts
+→ produce structured claim-level verdicts and applicable regulatory classifications
 → calculate deterministic Marketing Gap Score
 
 ## Claim verdicts
@@ -49,6 +49,16 @@ Do not rely on the model's general knowledge of FSSAI regulations when evaluatin
 Do not invent regulatory thresholds.
 
 If the supplied regulations do not contain enough information to evaluate a claim, return INSUFFICIENT_INFORMATION.
+
+## Regulatory classifications
+
+The response may separately report a regulatory classification (for example,
+"high in sugar") only when the supplied FSSAI rules explicitly define that
+classification and the visible package information is sufficient to apply its
+criteria.
+
+Regulatory classifications are factual rule applications, not health scores or
+health recommendations. They do not affect the Marketing Gap Score.
 
 ## Scoring
 
@@ -92,9 +102,11 @@ The model should:
 
 - extract what is actually visible
 - distinguish claims from factual nutrition information
+- split combined marketing statements into independently assessable atomic claims
 - use only supplied regulatory information for compliance evaluation
 - avoid unsupported assumptions
 - explicitly report insufficient information
+- report a regulatory classification only when explicitly defined by supplied rules
 - avoid medical or health recommendations
 
 The model must not:
@@ -103,6 +115,7 @@ The model must not:
 - invent nutrition values
 - invent FSSAI requirements
 - infer missing label information
+- treat the absence of an ingredient as regulatory proof unless supplied rules say it is sufficient
 - make regulatory/legal determinations beyond the supplied criteria
 
 ## Code quality
