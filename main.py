@@ -1,23 +1,27 @@
-"""Command-line entry point for the FoodPharmer V1 analyzer."""
+"""Command-line entry point for the FoodPharmer V2 analyzer."""
 
 import argparse
 import json
-from pathlib import Path
 
 from foodpharmer.analyzer import analyze_package
+from foodpharmer.retrieval import LocalFssaiRetriever
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Evaluate visible package marketing claims against supplied FSSAI rules."
+        description="Evaluate visible package marketing claims using local FSSAI documents."
     )
     parser.add_argument("--image", required=True, help="Path to a JPG, PNG, or WebP package image.")
-    parser.add_argument("--rules", required=True, help="Path to a text file containing applicable FSSAI rules.")
+    parser.add_argument(
+        "--fssai-dir",
+        default="data/fssai",
+        help="Directory containing official FSSAI PDF documents (default: data/fssai).",
+    )
     parser.add_argument("--model", default="gpt-4.1-mini", help="OpenAI model to use.")
     args = parser.parse_args()
 
-    rules = Path(args.rules).read_text(encoding="utf-8")
-    result = analyze_package(args.image, rules, model=args.model)
+    retriever = LocalFssaiRetriever.from_directory(args.fssai_dir)
+    result = analyze_package(args.image, retriever, model=args.model)
     print(json.dumps(result.model_dump(mode="json"), indent=2))
 
 

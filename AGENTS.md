@@ -20,13 +20,15 @@ It does NOT evaluate:
 
 Do not introduce subjective health scores or nutritional-quality judgments.
 
-## Current MVP
+## Current MVP (V2)
 
-V1 pipeline:
+V2 pipeline:
 
 Package image
 → extract marketing claims and relevant nutrition information
-→ compare claims against supplied FSSAI rules
+→ perform a separate ingredient-list consistency check where applicable
+→ retrieve relevant FSSAI rules from locally supplied official documents
+→ compare claims against retrieved FSSAI evidence
 → produce structured claim-level verdicts and applicable regulatory classifications
 → calculate deterministic Marketing Gap Score
 
@@ -42,13 +44,13 @@ Never guess when the supplied image does not contain enough information.
 
 ## Regulatory source
 
-FSSAI regulations supplied by the application are the source of truth for claim evaluation.
+Locally supplied official FSSAI documents are the source of truth for claim evaluation.
 
 Do not rely on the model's general knowledge of FSSAI regulations when evaluating a claim.
 
 Do not invent regulatory thresholds.
 
-If the supplied regulations do not contain enough information to evaluate a claim, return INSUFFICIENT_INFORMATION.
+If no relevant FSSAI evidence is retrieved, return INSUFFICIENT_INFORMATION.
 
 ## Regulatory classifications
 
@@ -59,6 +61,17 @@ criteria.
 
 Regulatory classifications are factual rule applications, not health scores or
 health recommendations. They do not affect the Marketing Gap Score.
+
+## Ingredient-list checks
+
+For an applicable ingredient-absence claim, the response may include a separate
+ingredient-list check. This check reports only whether the relevant ingredient
+terms are listed in a complete, visible ingredient list. It is factual label
+evidence, not FSSAI compliance evidence.
+
+Ingredient-list checks must not change a claim verdict or the Marketing Gap
+Score. If no FSSAI rule is retrieved, the claim remains
+INSUFFICIENT_INFORMATION even when the ingredient is not listed.
 
 ## Scoring
 
@@ -107,6 +120,7 @@ The model should:
 - avoid unsupported assumptions
 - explicitly report insufficient information
 - report a regulatory classification only when explicitly defined by supplied rules
+- report ingredient-list checks separately from FSSAI claim verdicts
 - avoid medical or health recommendations
 
 The model must not:

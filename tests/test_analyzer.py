@@ -5,60 +5,105 @@ from types import SimpleNamespace
 
 from foodpharmer.analyzer import analyze_package
 from foodpharmer.models import (
-    ClaimAssessment,
-    ModelAnalysis,
-    RegulatoryClassification,
+    ClaimDecision,
+    ClassificationDecision,
+    ExtractedClaim,
+    NutritionFact,
+    PackageExtraction,
+    RuleEvidence,
     Verdict,
 )
 
 
 class FakeResponses:
-    def __init__(self, analysis):
-        self.analysis = analysis
-        self.kwargs = None
+    def __init__(self, outputs):
+        self.outputs = list(outputs)
+        self.requests = []
 
     def parse(self, **kwargs):
-        self.kwargs = kwargs
-        return SimpleNamespace(output_parsed=self.analysis)
+        self.requests.append(kwargs)
+        return SimpleNamespace(output_parsed=self.outputs.pop(0))
 
 
 class FakeClient:
-    def __init__(self, analysis):
-        self.responses = FakeResponses(analysis)
+    def __init__(self, outputs):
+        self.responses = FakeResponses(outputs)
+
+
+class StaticRetriever:
+    def __init__(self, evidence):
+        self.evidence = evidence
+        self.calls = []
+
+    def retrieve(self, claim, context, limit=3):
+        self.calls.append((claim, context, limit))
+        return self.evidence
 
 
 class AnalyzePackageTests(unittest.TestCase):
-    def test_score_uses_claims_not_regulatory_classifications(self):
-        analysis = ModelAnalysis(
-            nutrition_facts=[],
-            claims=[
-                ClaimAssessment(
-                    claim="No cholesterol",
-                    visible_evidence=["Cholesterol: 0 mg"],
-                    verdict=Verdict.SUPPORTED,
-                    rationale="The supplied criterion is met.",
-                    applicable_rule="Cholesterol claim criterion",
-                )
-            ],
+    def test_evaluates_claim_using_retrieved_evidence_and_scores_locally(self):
+        extraction = PackageExtraction(
+            nutrition_facts=[NutritionFact(nutrient="Protein", value="10 g per 100 g")],
+            ingredients=["Wheat flour", "Palm oil"],
+            ingredient_list_complete=True,
+            claims=[ExtractedClaim(claim="PROTEIN SOURCE", visible_evidence=["PROTEIN SOURCE"])],
+        )
+        decision = ClaimDecision(
+            verdict=Verdict.SUPPORTED,
+            rationale="The visible protein amount meets the retrieved criterion.",
+            evidence_indexes=[0],
             regulatory_classifications=[
-                RegulatoryClassification(
-                    classification="High in sugar",
-                    visible_evidence=["Total sugar: 15 g per 100 g"],
-                    rationale="The supplied threshold is met.",
-                    applicable_rule="High-sugar threshold",
+                ClassificationDecision(
+                    classification="Protein source",
+                    rationale="The visible protein amount meets the retrieved criterion.",
+                    evidence_indexes=[0],
                 )
             ],
         )
-        client = FakeClient(analysis)
+        evidence = [
+            RuleEvidence(
+                document="FSSAI Claims",
+                source="claims.pdf",
+                page_number=2,
+                section="SCHEDULE I",
+                text="A protein source claim requires the stated qualifying amount.",
+            )
+        ]
+        client = FakeClient([extraction, decision])
+        retriever = StaticRetriever(evidence)
 
         with tempfile.TemporaryDirectory() as directory:
             image_path = Path(directory) / "package.png"
-            image_path.write_bytes(b"not-an-image-needed-by-fake-client")
-            result = analyze_package(image_path, "Supplied rule text", client=client)
+            image_path.write_bytes(b"fake-image")
+            result = analyze_package(image_path, retriever, client=client)
 
         self.assertEqual(result.marketing_gap_score, 0.0)
-        self.assertEqual(result.regulatory_classifications[0].classification, "High in sugar")
-        self.assertIs(client.responses.kwargs["text_format"], ModelAnalysis)
+        self.assertEqual(result.claims[0].fssai_evidence, evidence)
+        self.assertEqual(result.claims[0].applicable_rule, "FSSAI Claims, page 2, SCHEDULE I")
+        self.assertEqual(result.regulatory_classifications[0].classification, "Protein source")
+        self.assertEqual(result.regulatory_classifications[0].fssai_evidence, evidence)
+        self.assertEqual(len(client.responses.requests), 2)
+        self.assertIn("Indexed retrieved FSSAI evidence", client.responses.requests[1]["input"][0]["content"])
+
+    def test_returns_insufficient_information_without_relevant_rule(self):
+        extraction = PackageExtraction(
+            nutrition_facts=[],
+            ingredients=["Wheat flour", "Palm oil"],
+            ingredient_list_complete=True,
+            claims=[ExtractedClaim(claim="0% Maida", visible_evidence=["0% Maida"])],
+        )
+        client = FakeClient([extraction])
+
+        with tempfile.TemporaryDirectory() as directory:
+            image_path = Path(directory) / "package.png"
+            image_path.write_bytes(b"fake-image")
+            result = analyze_package(image_path, StaticRetriever([]), client=client)
+
+        self.assertEqual(result.claims[0].verdict, Verdict.INSUFFICIENT_INFORMATION)
+        self.assertEqual(result.claims[0].fssai_evidence, [])
+        self.assertEqual(result.claims[0].ingredient_list_check.status, "NOT_LISTED")
+        self.assertIsNone(result.marketing_gap_score)
+        self.assertEqual(len(client.responses.requests), 1)
 
 
 if __name__ == "__main__":
