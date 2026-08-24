@@ -1,0 +1,19 @@
+{
+  "nutrition_facts": [
+    {"nutrient": "Energy", "value": "400 kcal per 100 g"},
+    {"nutrient": "Protein", "value": "8 g per 100 g"},
+    {"nutrient": "Total Fat", "value": "18 g per 100 g"},
+    {"nutrient": "Total Sugars", "value": "15 g per 100 g"}
+  ],
+  "ingredients": [
+    "Refined wheat flour",
+    "Sugar",
+    "Palm oil",
+    "Cocoa solids",
+    "Salt"
+  ],
+  "ingredient_list_complete": true,
+  "claims": [
+    {"claim": "guilt-free", "visible_evidence": ["GUILT-FREE SNACKING"]}
+  ]
+}

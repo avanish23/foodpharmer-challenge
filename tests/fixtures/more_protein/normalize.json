@@ -1,0 +1,16 @@
+{
+  "2x more protein": {
+    "claim_text": "2x more protein",
+    "claim_type": "COMPARATIVE",
+    "payload": {
+      "claim_type": "COMPARATIVE",
+      "metric": "protein",
+      "magnitude": 2.0,
+      "magnitude_unit": "multiplier",
+      "direction": "more",
+      "baseline_description": "unspecified reference product",
+      "baseline_specified": false,
+      "measurement_basis": null
+    }
+  }
+}

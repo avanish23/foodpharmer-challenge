@@ -1,0 +1,16 @@
+{
+  "50% less oil than other chips": {
+    "claim_text": "50% less oil than other chips",
+    "claim_type": "COMPARATIVE",
+    "payload": {
+      "claim_type": "COMPARATIVE",
+      "metric": "oil",
+      "magnitude": 50.0,
+      "magnitude_unit": "percent",
+      "direction": "less",
+      "baseline_description": "other chips",
+      "baseline_specified": false,
+      "measurement_basis": null
+    }
+  }
+}

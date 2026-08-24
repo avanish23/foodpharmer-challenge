@@ -1,0 +1,11 @@
+{
+  "guilt-free": {
+    "claim_text": "guilt-free",
+    "claim_type": "SUBJECTIVE_MARKETING",
+    "payload": {
+      "claim_type": "SUBJECTIVE_MARKETING",
+      "phrase": "guilt-free",
+      "reason_non_falsifiable": "The phrase describes an emotional state, not a measurable property of the food, and cannot be objectively evaluated."
+    }
+  }
+}
