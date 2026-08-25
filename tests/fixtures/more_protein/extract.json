@@ -1,0 +1,20 @@
+{
+  "nutrition_facts": [
+    {"nutrient": "Energy", "value": "410 kcal per 100 g"},
+    {"nutrient": "Protein", "value": "20 g per 100 g"},
+    {"nutrient": "Total Fat", "value": "12 g per 100 g"},
+    {"nutrient": "Total Carbohydrate", "value": "55 g per 100 g"}
+  ],
+  "ingredients": [
+    "Wheat flour",
+    "Soy protein isolate",
+    "Whey protein concentrate",
+    "Vegetable oil",
+    "Sugar",
+    "Salt"
+  ],
+  "ingredient_list_complete": true,
+  "claims": [
+    {"claim": "2x more protein", "visible_evidence": ["2X MORE PROTEIN"]}
+  ]
+}

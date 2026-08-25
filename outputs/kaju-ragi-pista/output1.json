@@ -1,0 +1,768 @@
+{
+  "image_path": "/Users/avanish.patil/Desktop/added-website-claims.png",
+  "extraction": {
+    "nutrition_facts": [
+      {
+        "nutrient": "Energy (kcal)",
+        "value": "521.17 per 100g"
+      },
+      {
+        "nutrient": "Energy (kcal)",
+        "value": "78.2 per 15g"
+      },
+      {
+        "nutrient": "Protein (g)",
+        "value": "10.45 per 100g"
+      },
+      {
+        "nutrient": "Protein (g)",
+        "value": "1.6 per 15g"
+      },
+      {
+        "nutrient": "Carbohydrates (g)",
+        "value": "52.68 per 100g"
+      },
+      {
+        "nutrient": "Carbohydrates (g)",
+        "value": "7.9 per 15g"
+      },
+      {
+        "nutrient": "Total Sugar (g)",
+        "value": "15.24 per 100g"
+      },
+      {
+        "nutrient": "Total Sugar (g)",
+        "value": "2.3 per 15g"
+      },
+      {
+        "nutrient": "Added Sugar (g)",
+        "value": "11.27 per 100g"
+      },
+      {
+        "nutrient": "Added Sugar (g)",
+        "value": "1.7 per 15g"
+      },
+      {
+        "nutrient": "Total Fat (g)",
+        "value": "29.85 per 100g"
+      },
+      {
+        "nutrient": "Total Fat (g)",
+        "value": "4.5 per 15g"
+      },
+      {
+        "nutrient": "Saturated Fat (g)",
+        "value": "13.26 per 100g"
+      },
+      {
+        "nutrient": "Saturated Fat (g)",
+        "value": "2.0 per 15g"
+      },
+      {
+        "nutrient": "Trans Fat (g)",
+        "value": "0.00 per 100g"
+      },
+      {
+        "nutrient": "Trans Fat (g)",
+        "value": "0.0 per 15g"
+      },
+      {
+        "nutrient": "cholesterol (mg)",
+        "value": "0.00 per 100g"
+      },
+      {
+        "nutrient": "cholesterol (mg)",
+        "value": "0.0 per 15g"
+      },
+      {
+        "nutrient": "Sodium (mg)",
+        "value": "198 per 100g"
+      },
+      {
+        "nutrient": "Sodium (mg)",
+        "value": "29.7 per 15g"
+      },
+      {
+        "nutrient": "Dietary fiber (g)",
+        "value": "3.75 per 100g"
+      },
+      {
+        "nutrient": "Dietary fiber (g)",
+        "value": "0.6 per 15g"
+      }
+    ],
+    "ingredients": [
+      "Brown Sugar",
+      "Ragi Flour (16%)",
+      "Wheat Flour",
+      "Edible Vegetable Fat (Shortening)",
+      "Oats",
+      "Cashew Nuts (5%)",
+      "Milk products (5.6%)",
+      "Pistachios (3%)",
+      "Butter",
+      "Glucose",
+      "Arrowroot Powder",
+      "Custard Powder",
+      "Edible Vegetable Oil (Refined Cottonseed Oil)",
+      "Raising Agents [INS 500(ii), INS 503(ii), INS 450(i)]",
+      "Iodised Salt",
+      "Artificial Flavouring Substances (Cashew, Butter, Milk)"
+    ],
+    "ingredient_list_complete": true,
+    "claims": [
+      {
+        "claim": "Ragi Kaju Pista Cookies",
+        "visible_evidence": [
+          "Ragi Kaju Pista Cookies"
+        ]
+      },
+      {
+        "claim": "Nourishing Blend of Ragi with Crunchy Kaju & Pista",
+        "visible_evidence": [
+          "Nourishing Blend of Ragi with Crunchy Kaju & Pista"
+        ]
+      },
+      {
+        "claim": "0% Maida",
+        "visible_evidence": [
+          "0% Maida"
+        ]
+      },
+      {
+        "claim": "NO CHOLESTEROL WHITE SUGAR TRANS FAT",
+        "visible_evidence": [
+          "NO CHOLESTEROL WHITE SUGAR TRANS FAT"
+        ]
+      },
+      {
+        "claim": "PROTEIN SOURCE",
+        "visible_evidence": [
+          "PROTEIN SOURCE"
+        ]
+      },
+      {
+        "claim": "High Fiber",
+        "visible_evidence": [
+          "High Fiber"
+        ]
+      },
+      {
+        "claim": "No Palm Oil",
+        "visible_evidence": [
+          "No Palm Oil"
+        ]
+      },
+      {
+        "claim": "No Cholesterol",
+        "visible_evidence": [
+          "No Cholesterol"
+        ]
+      },
+      {
+        "claim": "No Trans Fat",
+        "visible_evidence": [
+          "No Trans Fat"
+        ]
+      },
+      {
+        "claim": "No White Sugar",
+        "visible_evidence": [
+          "No White Sugar"
+        ]
+      }
+    ]
+  },
+  "claims": [
+    {
+      "claim_text": "Ragi Kaju Pista Cookies",
+      "claim_type": "COMPOSITION",
+      "normalized_claim": {
+        "claim_text": "Ragi Kaju Pista Cookies",
+        "claim_type": "COMPOSITION",
+        "payload": {
+          "claim_type": "COMPOSITION",
+          "component": "Ragi, Cashew (kaju), Pistachios (pista)",
+          "claimed_percentage": null,
+          "percentage_qualifier": null,
+          "disclosed_on_label": false
+        }
+      },
+      "evidence_requirements": [
+        {
+          "requirement_type": "INGREDIENT_LIST",
+          "description": "Visible ingredient list confirming presence of Ragi, Cashew (kaju), Pistachios (pista).",
+          "source_hint": "packaging"
+        }
+      ],
+      "available_evidence": [
+        {
+          "requirement": {
+            "requirement_type": "INGREDIENT_LIST",
+            "description": "Visible ingredient list confirming presence of Ragi, Cashew (kaju), Pistachios (pista).",
+            "source_hint": "packaging"
+          },
+          "status": "AVAILABLE",
+          "data": {
+            "ingredients": [
+              "Brown Sugar",
+              "Ragi Flour (16%)",
+              "Wheat Flour",
+              "Edible Vegetable Fat (Shortening)",
+              "Oats",
+              "Cashew Nuts (5%)",
+              "Milk products (5.6%)",
+              "Pistachios (3%)",
+              "Butter",
+              "Glucose",
+              "Arrowroot Powder",
+              "Custard Powder",
+              "Edible Vegetable Oil (Refined Cottonseed Oil)",
+              "Raising Agents [INS 500(ii), INS 503(ii), INS 450(i)]",
+              "Iodised Salt",
+              "Artificial Flavouring Substances (Cashew, Butter, Milk)"
+            ],
+            "complete": true
+          },
+          "source": "packaging",
+          "note": null
+        }
+      ],
+      "verdict": "CONTRADICTED",
+      "reason": "'Ragi, Cashew (kaju), Pistachios (pista)' does not appear in the complete visible ingredient list, contradicting the composition claim.",
+      "computation": null
+    },
+    {
+      "claim_text": "Nourishing Blend of Ragi with Crunchy Kaju & Pista",
+      "claim_type": "COMPOSITION",
+      "normalized_claim": {
+        "claim_text": "Nourishing Blend of Ragi with Crunchy Kaju & Pista",
+        "claim_type": "COMPOSITION",
+        "payload": {
+          "claim_type": "COMPOSITION",
+          "component": "Ragi",
+          "claimed_percentage": 16.0,
+          "percentage_qualifier": "blend of",
+          "disclosed_on_label": true
+        }
+      },
+      "evidence_requirements": [
+        {
+          "requirement_type": "INGREDIENT_LIST",
+          "description": "Visible ingredient list confirming presence of Ragi.",
+          "source_hint": "packaging"
+        },
+        {
+          "requirement_type": "DECLARED_PERCENTAGE",
+          "description": "Label disclosure of the Ragi percentage (claimed 16.0%).",
+          "source_hint": "packaging"
+        }
+      ],
+      "available_evidence": [
+        {
+          "requirement": {
+            "requirement_type": "INGREDIENT_LIST",
+            "description": "Visible ingredient list confirming presence of Ragi.",
+            "source_hint": "packaging"
+          },
+          "status": "AVAILABLE",
+          "data": {
+            "ingredients": [
+              "Brown Sugar",
+              "Ragi Flour (16%)",
+              "Wheat Flour",
+              "Edible Vegetable Fat (Shortening)",
+              "Oats",
+              "Cashew Nuts (5%)",
+              "Milk products (5.6%)",
+              "Pistachios (3%)",
+              "Butter",
+              "Glucose",
+              "Arrowroot Powder",
+              "Custard Powder",
+              "Edible Vegetable Oil (Refined Cottonseed Oil)",
+              "Raising Agents [INS 500(ii), INS 503(ii), INS 450(i)]",
+              "Iodised Salt",
+              "Artificial Flavouring Substances (Cashew, Butter, Milk)"
+            ],
+            "complete": true
+          },
+          "source": "packaging",
+          "note": null
+        },
+        {
+          "requirement": {
+            "requirement_type": "DECLARED_PERCENTAGE",
+            "description": "Label disclosure of the Ragi percentage (claimed 16.0%).",
+            "source_hint": "packaging"
+          },
+          "status": "UNAVAILABLE",
+          "data": null,
+          "source": "packaging",
+          "note": "No percentage disclosure for 'claimed' was visible on the label."
+        }
+      ],
+      "verdict": "UNSUBSTANTIATED",
+      "reason": "'Ragi' is present in the ingredient list, but the actual Ragi percentage is not disclosed on the label, so the claimed 16.0% cannot be verified.",
+      "computation": null
+    },
+    {
+      "claim_text": "0% Maida",
+      "claim_type": "ABSENCE",
+      "normalized_claim": {
+        "claim_text": "0% Maida",
+        "claim_type": "ABSENCE",
+        "payload": {
+          "claim_type": "ABSENCE",
+          "ingredient": "Maida",
+          "claim_form": "0% Maida",
+          "zero_percent": true
+        }
+      },
+      "evidence_requirements": [
+        {
+          "requirement_type": "INGREDIENT_LIST",
+          "description": "Complete ingredient list from the package.",
+          "source_hint": "packaging"
+        }
+      ],
+      "available_evidence": [
+        {
+          "requirement": {
+            "requirement_type": "INGREDIENT_LIST",
+            "description": "Complete ingredient list from the package.",
+            "source_hint": "packaging"
+          },
+          "status": "AVAILABLE",
+          "data": {
+            "ingredients": [
+              "Brown Sugar",
+              "Ragi Flour (16%)",
+              "Wheat Flour",
+              "Edible Vegetable Fat (Shortening)",
+              "Oats",
+              "Cashew Nuts (5%)",
+              "Milk products (5.6%)",
+              "Pistachios (3%)",
+              "Butter",
+              "Glucose",
+              "Arrowroot Powder",
+              "Custard Powder",
+              "Edible Vegetable Oil (Refined Cottonseed Oil)",
+              "Raising Agents [INS 500(ii), INS 503(ii), INS 450(i)]",
+              "Iodised Salt",
+              "Artificial Flavouring Substances (Cashew, Butter, Milk)"
+            ],
+            "complete": true
+          },
+          "source": "packaging",
+          "note": null
+        }
+      ],
+      "verdict": "SUBSTANTIATED",
+      "reason": "'Maida' does not appear in the complete visible ingredient list.",
+      "computation": null
+    },
+    {
+      "claim_text": "NO CHOLESTEROL WHITE SUGAR TRANS FAT",
+      "claim_type": "ABSENCE",
+      "normalized_claim": {
+        "claim_text": "NO CHOLESTEROL WHITE SUGAR TRANS FAT",
+        "claim_type": "ABSENCE",
+        "payload": {
+          "claim_type": "ABSENCE",
+          "ingredient": "cholesterol",
+          "claim_form": "NO CHOLESTEROL",
+          "zero_percent": true
+        }
+      },
+      "evidence_requirements": [
+        {
+          "requirement_type": "INGREDIENT_LIST",
+          "description": "Complete ingredient list from the package.",
+          "source_hint": "packaging"
+        }
+      ],
+      "available_evidence": [
+        {
+          "requirement": {
+            "requirement_type": "INGREDIENT_LIST",
+            "description": "Complete ingredient list from the package.",
+            "source_hint": "packaging"
+          },
+          "status": "AVAILABLE",
+          "data": {
+            "ingredients": [
+              "Brown Sugar",
+              "Ragi Flour (16%)",
+              "Wheat Flour",
+              "Edible Vegetable Fat (Shortening)",
+              "Oats",
+              "Cashew Nuts (5%)",
+              "Milk products (5.6%)",
+              "Pistachios (3%)",
+              "Butter",
+              "Glucose",
+              "Arrowroot Powder",
+              "Custard Powder",
+              "Edible Vegetable Oil (Refined Cottonseed Oil)",
+              "Raising Agents [INS 500(ii), INS 503(ii), INS 450(i)]",
+              "Iodised Salt",
+              "Artificial Flavouring Substances (Cashew, Butter, Milk)"
+            ],
+            "complete": true
+          },
+          "source": "packaging",
+          "note": null
+        }
+      ],
+      "verdict": "SUBSTANTIATED",
+      "reason": "'cholesterol' does not appear in the complete visible ingredient list.",
+      "computation": null
+    },
+    {
+      "claim_text": "PROTEIN SOURCE",
+      "claim_type": "SUBJECTIVE_MARKETING",
+      "normalized_claim": {
+        "claim_text": "PROTEIN SOURCE",
+        "claim_type": "SUBJECTIVE_MARKETING",
+        "payload": {
+          "claim_type": "SUBJECTIVE_MARKETING",
+          "phrase": "PROTEIN SOURCE",
+          "reason_non_falsifiable": "The phrase indicates a source of protein but does not quantify or specify the amount or quality, making it a subjective marketing claim without an objective basis."
+        }
+      },
+      "evidence_requirements": [],
+      "available_evidence": [],
+      "verdict": "NON_FALSIFIABLE",
+      "reason": "'PROTEIN SOURCE' is subjective marketing language. The phrase indicates a source of protein but does not quantify or specify the amount or quality, making it a subjective marketing claim without an objective basis.",
+      "computation": null
+    },
+    {
+      "claim_text": "High Fiber",
+      "claim_type": "NUTRIENT_CONTENT",
+      "normalized_claim": {
+        "claim_text": "High Fiber",
+        "claim_type": "NUTRIENT_CONTENT",
+        "payload": {
+          "claim_type": "NUTRIENT_CONTENT",
+          "nutrient": "dietary fiber",
+          "qualifier": "high",
+          "declared_value": 3.75,
+          "declared_unit": "g",
+          "declared_per": "per 100g"
+        }
+      },
+      "evidence_requirements": [
+        {
+          "requirement_type": "NUTRIENT_VALUE",
+          "description": "Declared value of dietary fiber on the package.",
+          "source_hint": "packaging"
+        },
+        {
+          "requirement_type": "FSSAI_THRESHOLD",
+          "description": "FSSAI qualifying criterion for a 'high dietary fiber' claim.",
+          "source_hint": "fssai"
+        }
+      ],
+      "available_evidence": [
+        {
+          "requirement": {
+            "requirement_type": "NUTRIENT_VALUE",
+            "description": "Declared value of dietary fiber on the package.",
+            "source_hint": "packaging"
+          },
+          "status": "AVAILABLE",
+          "data": {
+            "nutrient": "Dietary fiber (g)",
+            "value_str": "3.75 per 100g",
+            "value": 3.75,
+            "unit": "per"
+          },
+          "source": "packaging",
+          "note": null
+        },
+        {
+          "requirement": {
+            "requirement_type": "FSSAI_THRESHOLD",
+            "description": "FSSAI qualifying criterion for a 'high dietary fiber' claim.",
+            "source_hint": "fssai"
+          },
+          "status": "AVAILABLE",
+          "data": {
+            "evidence": [
+              {
+                "document": "Compendium_Advertising_Claims_Regulations_14_12_2022",
+                "source": "Compendium_Advertising_Claims_Regulations_14_12_2022.pdf",
+                "page_number": 8,
+                "section": "Not more than",
+                "text": "Not more than  \n40 kcal per 100 g for solids, or  \n20 kcal per 100 ml for liquids.  \nFree Not more than  \n4 kcal per 100 ml for liquids.  \n2. Fat Low Not more than  \n3 g of fat per 100 g for solids, or  \n1.5 g of fat per 100 ml for liquids. \nFree Not more than  \n0.5 g of fat per 100 g for solids or 100 ml for liquids.  \n3. Cholesterol Low Not more than  \n20 mg cholesterol per 100 g for solids and 1.5 g saturated fat per 100 g for \nsolids, or \n10 mg per 100 ml for liquids and 0.75 g of saturated fat per 100 ml for liquids  \nand in either case must provide not more than 10% of energy from saturated \nfat.  \nFree Not more than  \n5 mg cholesterol per 100 g for solids, or 100 ml for liquids.  \nAdditionally, the food shall contain no more than  \n1.5 g saturated fat per 100 g for solids, or \n0.75 g of saturated fat per 100 ml for liquids  \nand in either case must provide not more than 10% of energy from saturated \nfat.  \n4. Saturated fat Low Not more than  \n1.5g per 100 g for solids, or \n0.75 g per 100 ml for liquids  \nand in either case must provide not more than 10% of energy from saturated \nfat.  \nFree Saturated fatty acids do not exceed  \n0.1 g per 100 g for solids or 100 ml for liquid"
+              },
+              {
+                "document": "Compendium_Advertising_Claims_Regulations_14_12_2022",
+                "source": "Compendium_Advertising_Claims_Regulations_14_12_2022.pdf",
+                "page_number": 9,
+                "section": "10 per cent. of Recommended Dietary Allowance per 100 g for solids",
+                "text": "10 per cent. of Recommended Dietary Allowance per 100 g for solids  \n5 per cent. of Recommended Dietary Allowance per 100 ml for liquids, or \n5 per cent. of Recommended Dietary Allowance per 100 kcal, or \n10 per cent. of Recommended Dietary Allowance per serving \nRich / \nHigh  \n20 per cent. of Recommended Dietary Allowance per 100 g for solids  \n10 per cent. of Recommended Dietary Allowance per 100 ml for liquids, or \n10 per cent. of Recommended Dietary Allowance per 100 kcal, or \n20 per cent. of Recommended Dietary Allowance per serving \n12. Vitamin(s)  \nor Mineral(s) \nSource  The food provides at least - \n15 per cent. of Recommended Dietary Allowance  of the vitamin or mineral \nper 100 g for solids; or  \n7.5 per cent. of Recommended Dietary Allowance  of the vitamin or mineral \nper 100 ml for liquids; or \n5 per cent. of Recommended Dietary Allowance per 100 kcal; or \n15 per cent. of Recommended Dietary Allowance per serving \nHigh  The food provides at least - \n30 per cent. of Recommended Dietary Allowance per 100 g for solids; or  \n15 per cent. of Recommended Dietary Allowance per 100 ml for liquids; or \n10 per cent. of Recommended Dietary Allowance per 100 kcal; or \n30 per cent."
+              },
+              {
+                "document": "Compendium_Advertising_Claims_Regulations_14_12_2022",
+                "source": "Compendium_Advertising_Claims_Regulations_14_12_2022.pdf",
+                "page_number": 9,
+                "section": "10 per cent. of Recommended Dietary Allowance per 100 g for solids",
+                "text": " of Recommended Dietary Allowance per serving \n13. Sodium Low Product contains not more than  \n0.12 g of sodium per 100 g for solids or 100 ml for liquids. \nVery low  Product contains not more than  \n0.04 g of sodium per 100 g for solids or 100 ml for liquids. \nSodium \nfree \nProduct contains not more than  \n0.005 g of sodium per 100 g for solids or 100 ml for liquids. \n14. Dietary fibre Source  Product contains at least - \n3 g of fibre per 100 g for solids; or  \n1.5 g of fibre per 100 ml for liquids; or \n1.5 g of fibre per 100 kcal. \nHigh or \nRich  \nThe product contains at least - \n6 g of fibre per 100 g for solids; or  \n3 g of fibre per 100 ml for liquids; or \n3 g of fibre per 100 kcal.  \n15. Probiotics Source Product contains \u2265108 Colony Forming Unit in the recommended serving size \nper day \n16. Glycemic index \n(GI)* \nLow GI GI value below 55 \nA food\u2019s GI indicates the rate at which the carbohydrate in the food is broken \ndown into glucose and absorbed from the gut into the blood  \n17. Docosahexaenoic \nacid (DHA) \nSource  Product contains at least 40 mg of DHA per 100 g or per 100 kcal.  \n18. Lactose Free Lactose content in the product shall not exceed 0.1 per cent."
+              }
+            ]
+          },
+          "source": "fssai",
+          "note": null
+        }
+      ],
+      "verdict": "CONTRADICTED",
+      "reason": "Declared dietary fiber of 3.75per does not satisfy the FSSAI criterion of >= 6.0 g for a 'high' claim.",
+      "computation": {
+        "operation": "nutrient_threshold_check",
+        "inputs": {
+          "nutrient": "dietary fiber",
+          "qualifier": "high",
+          "declared_value": 3.75,
+          "declared_unit": "per",
+          "threshold_operator": ">=",
+          "threshold_value": 6.0,
+          "threshold_unit": "g"
+        },
+        "result": 3.75,
+        "unit": "per",
+        "passed": false
+      }
+    },
+    {
+      "claim_text": "No Palm Oil",
+      "claim_type": "ABSENCE",
+      "normalized_claim": {
+        "claim_text": "No Palm Oil",
+        "claim_type": "ABSENCE",
+        "payload": {
+          "claim_type": "ABSENCE",
+          "ingredient": "Palm Oil",
+          "claim_form": "No Palm Oil",
+          "zero_percent": false
+        }
+      },
+      "evidence_requirements": [
+        {
+          "requirement_type": "INGREDIENT_LIST",
+          "description": "Complete ingredient list from the package.",
+          "source_hint": "packaging"
+        }
+      ],
+      "available_evidence": [
+        {
+          "requirement": {
+            "requirement_type": "INGREDIENT_LIST",
+            "description": "Complete ingredient list from the package.",
+            "source_hint": "packaging"
+          },
+          "status": "AVAILABLE",
+          "data": {
+            "ingredients": [
+              "Brown Sugar",
+              "Ragi Flour (16%)",
+              "Wheat Flour",
+              "Edible Vegetable Fat (Shortening)",
+              "Oats",
+              "Cashew Nuts (5%)",
+              "Milk products (5.6%)",
+              "Pistachios (3%)",
+              "Butter",
+              "Glucose",
+              "Arrowroot Powder",
+              "Custard Powder",
+              "Edible Vegetable Oil (Refined Cottonseed Oil)",
+              "Raising Agents [INS 500(ii), INS 503(ii), INS 450(i)]",
+              "Iodised Salt",
+              "Artificial Flavouring Substances (Cashew, Butter, Milk)"
+            ],
+            "complete": true
+          },
+          "source": "packaging",
+          "note": null
+        }
+      ],
+      "verdict": "SUBSTANTIATED",
+      "reason": "'Palm Oil' does not appear in the complete visible ingredient list.",
+      "computation": null
+    },
+    {
+      "claim_text": "No Cholesterol",
+      "claim_type": "ABSENCE",
+      "normalized_claim": {
+        "claim_text": "No Cholesterol",
+        "claim_type": "ABSENCE",
+        "payload": {
+          "claim_type": "ABSENCE",
+          "ingredient": "Cholesterol",
+          "claim_form": "No Cholesterol",
+          "zero_percent": true
+        }
+      },
+      "evidence_requirements": [
+        {
+          "requirement_type": "INGREDIENT_LIST",
+          "description": "Complete ingredient list from the package.",
+          "source_hint": "packaging"
+        }
+      ],
+      "available_evidence": [
+        {
+          "requirement": {
+            "requirement_type": "INGREDIENT_LIST",
+            "description": "Complete ingredient list from the package.",
+            "source_hint": "packaging"
+          },
+          "status": "AVAILABLE",
+          "data": {
+            "ingredients": [
+              "Brown Sugar",
+              "Ragi Flour (16%)",
+              "Wheat Flour",
+              "Edible Vegetable Fat (Shortening)",
+              "Oats",
+              "Cashew Nuts (5%)",
+              "Milk products (5.6%)",
+              "Pistachios (3%)",
+              "Butter",
+              "Glucose",
+              "Arrowroot Powder",
+              "Custard Powder",
+              "Edible Vegetable Oil (Refined Cottonseed Oil)",
+              "Raising Agents [INS 500(ii), INS 503(ii), INS 450(i)]",
+              "Iodised Salt",
+              "Artificial Flavouring Substances (Cashew, Butter, Milk)"
+            ],
+            "complete": true
+          },
+          "source": "packaging",
+          "note": null
+        }
+      ],
+      "verdict": "SUBSTANTIATED",
+      "reason": "'Cholesterol' does not appear in the complete visible ingredient list.",
+      "computation": null
+    },
+    {
+      "claim_text": "No Trans Fat",
+      "claim_type": "ABSENCE",
+      "normalized_claim": {
+        "claim_text": "No Trans Fat",
+        "claim_type": "ABSENCE",
+        "payload": {
+          "claim_type": "ABSENCE",
+          "ingredient": "trans fat",
+          "claim_form": "No Trans Fat",
+          "zero_percent": true
+        }
+      },
+      "evidence_requirements": [
+        {
+          "requirement_type": "INGREDIENT_LIST",
+          "description": "Complete ingredient list from the package.",
+          "source_hint": "packaging"
+        }
+      ],
+      "available_evidence": [
+        {
+          "requirement": {
+            "requirement_type": "INGREDIENT_LIST",
+            "description": "Complete ingredient list from the package.",
+            "source_hint": "packaging"
+          },
+          "status": "AVAILABLE",
+          "data": {
+            "ingredients": [
+              "Brown Sugar",
+              "Ragi Flour (16%)",
+              "Wheat Flour",
+              "Edible Vegetable Fat (Shortening)",
+              "Oats",
+              "Cashew Nuts (5%)",
+              "Milk products (5.6%)",
+              "Pistachios (3%)",
+              "Butter",
+              "Glucose",
+              "Arrowroot Powder",
+              "Custard Powder",
+              "Edible Vegetable Oil (Refined Cottonseed Oil)",
+              "Raising Agents [INS 500(ii), INS 503(ii), INS 450(i)]",
+              "Iodised Salt",
+              "Artificial Flavouring Substances (Cashew, Butter, Milk)"
+            ],
+            "complete": true
+          },
+          "source": "packaging",
+          "note": null
+        }
+      ],
+      "verdict": "SUBSTANTIATED",
+      "reason": "'trans fat' does not appear in the complete visible ingredient list.",
+      "computation": null
+    },
+    {
+      "claim_text": "No White Sugar",
+      "claim_type": "ABSENCE",
+      "normalized_claim": {
+        "claim_text": "No White Sugar",
+        "claim_type": "ABSENCE",
+        "payload": {
+          "claim_type": "ABSENCE",
+          "ingredient": "White Sugar",
+          "claim_form": "No White Sugar",
+          "zero_percent": false
+        }
+      },
+      "evidence_requirements": [
+        {
+          "requirement_type": "INGREDIENT_LIST",
+          "description": "Complete ingredient list from the package.",
+          "source_hint": "packaging"
+        }
+      ],
+      "available_evidence": [
+        {
+          "requirement": {
+            "requirement_type": "INGREDIENT_LIST",
+            "description": "Complete ingredient list from the package.",
+            "source_hint": "packaging"
+          },
+          "status": "AVAILABLE",
+          "data": {
+            "ingredients": [
+              "Brown Sugar",
+              "Ragi Flour (16%)",
+              "Wheat Flour",
+              "Edible Vegetable Fat (Shortening)",
+              "Oats",
+              "Cashew Nuts (5%)",
+              "Milk products (5.6%)",
+              "Pistachios (3%)",
+              "Butter",
+              "Glucose",
+              "Arrowroot Powder",
+              "Custard Powder",
+              "Edible Vegetable Oil (Refined Cottonseed Oil)",
+              "Raising Agents [INS 500(ii), INS 503(ii), INS 450(i)]",
+              "Iodised Salt",
+              "Artificial Flavouring Substances (Cashew, Butter, Milk)"
+            ],
+            "complete": true
+          },
+          "source": "packaging",
+          "note": null
+        }
+      ],
+      "verdict": "SUBSTANTIATED",
+      "reason": "'White Sugar' does not appear in the complete visible ingredient list.",
+      "computation": null
+    }
+  ]
+}

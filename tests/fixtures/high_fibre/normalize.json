@@ -1,0 +1,14 @@
+{
+  "High Fibre": {
+    "claim_text": "High Fibre",
+    "claim_type": "NUTRIENT_CONTENT",
+    "payload": {
+      "claim_type": "NUTRIENT_CONTENT",
+      "nutrient": "dietary fibre",
+      "qualifier": "high",
+      "declared_value": 8.2,
+      "declared_unit": "g",
+      "declared_per": "per 100 g"
+    }
+  }
+}
