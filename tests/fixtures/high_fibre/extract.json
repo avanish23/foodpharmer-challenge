@@ -1,0 +1,21 @@
+{
+  "nutrition_facts": [
+    {"nutrient": "Energy", "value": "380 kcal per 100 g"},
+    {"nutrient": "Protein", "value": "10.0 g per 100 g"},
+    {"nutrient": "Total Fat", "value": "8.5 g per 100 g"},
+    {"nutrient": "Total Carbohydrate", "value": "62 g per 100 g"},
+    {"nutrient": "Dietary Fibre", "value": "8.2 g per 100 g"}
+  ],
+  "ingredients": [
+    "Whole wheat flour",
+    "Bran",
+    "Vegetable oil (palm)",
+    "Sugar",
+    "Salt",
+    "Raising agent (INS 500 (ii))"
+  ],
+  "ingredient_list_complete": true,
+  "claims": [
+    {"claim": "High Fibre", "visible_evidence": ["Dietary Fibre 8.2 g per 100 g"]}
+  ]
+}

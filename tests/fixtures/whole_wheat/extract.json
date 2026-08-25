@@ -1,0 +1,23 @@
+{
+  "nutrition_facts": [
+    {"nutrient": "Energy", "value": "360 kcal per 100 g"},
+    {"nutrient": "Protein", "value": "12 g per 100 g"},
+    {"nutrient": "Total Fat", "value": "5 g per 100 g"},
+    {"nutrient": "Total Carbohydrate", "value": "68 g per 100 g"},
+    {"nutrient": "Dietary Fibre", "value": "9 g per 100 g"}
+  ],
+  "ingredients": [
+    "Whole wheat flour",
+    "Vegetable oil (palm)",
+    "Salt",
+    "Yeast",
+    "Bran"
+  ],
+  "ingredient_list_complete": true,
+  "claims": [
+    {
+      "claim": "Made with 100% whole wheat",
+      "visible_evidence": ["MADE WITH 100% WHOLE WHEAT"]
+    }
+  ]
+}

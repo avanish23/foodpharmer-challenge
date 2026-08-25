@@ -1,0 +1,13 @@
+{
+  "Made with 100% whole wheat": {
+    "claim_text": "Made with 100% whole wheat",
+    "claim_type": "COMPOSITION",
+    "payload": {
+      "claim_type": "COMPOSITION",
+      "component": "whole wheat",
+      "claimed_percentage": 100.0,
+      "percentage_qualifier": "100%",
+      "disclosed_on_label": false
+    }
+  }
+}
