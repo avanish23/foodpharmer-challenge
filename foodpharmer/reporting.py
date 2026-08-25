@@ -28,7 +28,10 @@ def render_compact(result: ClaimAnalysisResult) -> str:
 
     lines: list[str] = []
     if result.image_path:
-        lines.append(f"Image: {result.image_path}")
+        # image_path may be a single path or a comma-separated list joined by
+        # pipeline._format_image_path; render either shape sensibly.
+        label = "Images" if "," in result.image_path else "Image"
+        lines.append(f"{label}: {result.image_path}")
     lines.append("─" * 70)
 
     ext = result.extraction

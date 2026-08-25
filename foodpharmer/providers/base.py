@@ -11,9 +11,14 @@ class LLMProvider(Protocol):
     """The LLM is used for vision extraction, classification, and prose only."""
 
     def extract_package(
-        self, image_bytes: bytes, media_type: str
+        self, images: list[tuple[bytes, str]]
     ) -> PackageExtraction:
-        """Return the verbatim label content — no verdicts."""
+        """Return the verbatim label content — no verdicts.
+
+        ``images`` is one or more ``(image_bytes, media_type)`` tuples of the
+        same product pack (e.g. front + back). Implementations must merge the
+        visible content across images into a single :class:`PackageExtraction`.
+        """
 
     def normalize_claim(
         self, raw_claim: str, extraction: PackageExtraction

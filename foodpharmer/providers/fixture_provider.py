@@ -50,7 +50,9 @@ class FixtureProvider:
     # LLMProvider protocol
     # ------------------------------------------------------------------
 
-    def extract_package(self, image_bytes: bytes, media_type: str) -> PackageExtraction:
+    def extract_package(self, images: list[tuple[bytes, str]]) -> PackageExtraction:
+        # Fixture provider ignores the image bytes entirely — the recorded
+        # extraction is returned regardless of how many images were passed in.
         return self._extraction
 
     def normalize_claim(

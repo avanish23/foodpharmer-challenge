@@ -28,25 +28,35 @@ from .resolvers.base import resolve_claim
 
 
 def analyze(
-    image_bytes: bytes,
-    media_type: str,
+    images: list[tuple[bytes, str]],
     provider: LLMProvider,
     evidence_sources: list[EvidenceSource],
     *,
-    image_path: str | Path = "",
+    image_paths: list[str | Path] | str | Path = "",
 ) -> ClaimAnalysisResult:
-    """Run the full pipeline for one image and return the audit trail."""
+    """Run the full pipeline for one product (1..N images) and return the audit trail.
 
-    extraction = extract_package(image_bytes, media_type, provider)
+    ``images`` is one or more ``(image_bytes, media_type)`` tuples of the same
+    product pack (typically front + back). ``image_paths`` is used only for
+    reporting — it may be a single path, a list of paths, or an empty string.
+    """
+
+    extraction = extract_package(images, provider)
     normalized = normalize_claims(extraction, provider)
     claim_results = [
         _run_one_claim(claim, extraction, evidence_sources) for claim in normalized
     ]
     return ClaimAnalysisResult(
-        image_path=str(image_path),
+        image_path=_format_image_path(image_paths),
         extraction=extraction,
         claims=claim_results,
     )
+
+
+def _format_image_path(image_paths: list[str | Path] | str | Path) -> str:
+    if isinstance(image_paths, (str, Path)):
+        return str(image_paths)
+    return ", ".join(str(p) for p in image_paths)
 
 
 def _run_one_claim(

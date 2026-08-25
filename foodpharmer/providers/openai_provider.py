@@ -19,9 +19,22 @@ if TYPE_CHECKING:  # pragma: no cover - typing only
 
 EXTRACTION_PROMPT = """You extract marketing claims and nutrition facts printed on packaged food labels.
 
-Extract only text and nutrition facts actually visible in the image. Marketing
-claims include promotional statements such as nutrient-content or comparative
-claims. Do NOT treat the following as marketing claims:
+You may be given ONE OR MORE images of the SAME product pack (typically the
+front for marketing text, the back for the nutrition panel and ingredients,
+and optionally side panels). Merge information across the images into a
+SINGLE PackageExtraction:
+
+* Collect marketing claims from wherever they appear (usually the front).
+* Collect nutrition facts and the ingredient list from wherever they appear
+  (usually the back).
+* If the same claim appears on more than one image (e.g. "No Palm Oil" is
+  printed on both front and side), record it ONCE. Do not duplicate.
+* If a related-but-distinct claim appears (e.g. "0% Maida" and "0% Palm
+  Oil" side by side), keep them as separate atomic claims.
+
+Extract only text and nutrition facts actually visible in the images.
+Marketing claims include promotional statements such as nutrient-content or
+comparative claims. Do NOT treat the following as marketing claims:
 
 * the product name or brand name (e.g. "Ragi Kaju Pista Cookies", "Parle-G")
 * ordinary ingredient-list entries
@@ -30,15 +43,15 @@ claims. Do NOT treat the following as marketing claims:
 
 Preserve claim wording exactly where legible. Split combined marketing
 statements into atomic claims whenever each part can be independently assessed.
-Include the exact visible evidence for each claim. Do not deduplicate near-
-identical claims that appear more than once on the pack — but do NOT invent a
-claim that is not visibly present.
+Include the exact visible evidence for each claim. Do NOT invent a claim that
+is not visibly present in any of the supplied images.
 
 Extract ingredients as exact visible entries (comma-separated in the list order
 on the pack), separately from claims. Set ingredient_list_complete to true
 only when the full ingredient list is visibly present and legible from its
-start through its end; otherwise set it to false. Do not assess compliance,
-health, or regulatory requirements in this extraction step.
+start through its end across the supplied images; otherwise set it to false.
+Do not assess compliance, health, or regulatory requirements in this
+extraction step.
 """
 
 
@@ -131,15 +144,22 @@ class OpenAIProvider:
     def _decoding_kwargs(self) -> dict:
         return {"temperature": self._temperature}
 
-    def extract_package(self, image_bytes: bytes, media_type: str) -> PackageExtraction:
-        data_url = _data_url(image_bytes, media_type)
+    def extract_package(
+        self, images: list[tuple[bytes, str]]
+    ) -> PackageExtraction:
+        if not images:
+            raise ValueError("extract_package requires at least one image.")
+        image_content = [
+            {"type": "input_image", "image_url": _data_url(image_bytes, media_type)}
+            for image_bytes, media_type in images
+        ]
         response = self._client.responses.parse(
             model=self._model,
             instructions=EXTRACTION_PROMPT,
             input=[
                 {
                     "role": "user",
-                    "content": [{"type": "input_image", "image_url": data_url}],
+                    "content": image_content,
                 }
             ],
             text_format=PackageExtraction,

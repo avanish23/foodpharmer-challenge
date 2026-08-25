@@ -65,8 +65,11 @@ class PipelineFixtureTests(unittest.TestCase):
     def _run(self, case: str):
         provider = FixtureProvider.for_case(case, FIXTURES_DIR)
         # Image bytes are ignored by the fixture provider — the recorded
-        # extraction is returned regardless.
-        result = analyze(b"", "image/png", provider, _sources(), image_path=case)
+        # extraction is returned regardless. One placeholder image satisfies
+        # the "at least one image" contract on the new provider signature.
+        result = analyze(
+            [(b"", "image/png")], provider, _sources(), image_paths=case
+        )
         return result
 
     def test_high_fibre_substantiated_with_computation(self):

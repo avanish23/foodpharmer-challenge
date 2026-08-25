@@ -12,8 +12,12 @@ from .providers.base import LLMProvider
 
 
 def extract_package(
-    image_bytes: bytes, media_type: str, provider: LLMProvider
+    images: list[tuple[bytes, str]], provider: LLMProvider
 ) -> PackageExtraction:
-    """Delegate vision extraction to the provider — no further processing."""
+    """Delegate vision extraction to the provider — no further processing.
 
-    return provider.extract_package(image_bytes, media_type)
+    ``images`` is one or more ``(image_bytes, media_type)`` tuples of the same
+    product pack. Providers merge them into a single :class:`PackageExtraction`.
+    """
+
+    return provider.extract_package(images)
